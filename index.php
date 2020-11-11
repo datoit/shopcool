@@ -12,12 +12,14 @@
 // [ 应用入口文件 ]
 namespace think;
 
-require __DIR__ . '/../vendor/autoload.php';
+function main($event, $context) {
+  require __DIR__ . '/../vendor/autoload.php';
 
-// 执行HTTP应用并响应
-$http = (new App())->http;
+  // 执行HTTP应用并响应
+  $http = (new App())->http;
 
-$response = $http->run();
+  $response = $http->run();
 
-$response->send();
-$http->end($response);
+  $response->send();
+  $http->end($response);
+}
